@@ -18,7 +18,7 @@ def create_record():
     ...
     '''
     writer = tf.python_io.TFRecordWriter("train.tfrecords")
-    for index, name in enumerate(classes):
+    for index, name in enumerate(num_classes):
         class_path = cwd + name + "/"
         for img_name in os.listdir(class_path):
             img_path = class_path + img_name
@@ -67,4 +67,3 @@ if __name__ == '__main__':
             val, l= sess.run([img_batch, label_batch])
             #l = to_categorical(l, 12)
             print(val.shape, l)
-
